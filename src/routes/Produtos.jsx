@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Importe o Link para criar links de navegação
 import ListaProdutos from './ListaProdutos';
 import { AiFillEdit as Editar } from 'react-icons/ai'; // Importe o ícone de edição
-
+//https://react-icons.github.io/react-icons
+//npm install react-icons --save
 export default function Produtos() {
   useEffect(() => {
     document.title = "Produtos";
