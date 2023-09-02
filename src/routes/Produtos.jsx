@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Importe o Link para criar links de navegação
 import ListaProdutos from './ListaProdutos';
+import { AiFillEdit as Editar } from 'react-icons/ai'; // Importe o ícone de edição
 
 export default function Produtos() {
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Produtos() {
                 <td>{item.preco}</td>
                 <td>
                   {/* Use o componente Link para criar um link para a página de edição */}
-                  <Link to={`/editar/produtos/${item.id}`}>Editar</Link>
+                  <Link to={`/editar/produtos/${item.id}`}><Editar /></Link>
                   <Link to={`/excluir/produtos/${item.id}`}>Excluir</Link>
                 </td>
               </tr>
