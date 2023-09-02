@@ -1,25 +1,31 @@
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Importe o Link para criar links de navegação
+import ListaProdutos from './ListaProdutos';
+
 export default function Produtos() {
-    
-  React.useEffect(() => {
+  useEffect(() => {
     document.title = "Produtos";
-  }, []); // Defina o título da página no useEffect com um array de dependências vazio
+  }, []);
+
+  // Suponho que você já tenha definido a variável 'produtos' em algum lugar do seu código
+  const produtos = ListaProdutos;
 
   return (
     <>
       <h1>Lista de Produtos</h1>
       <div>
         <table>
-          <thead> {/* Use <thead> para cabeçalhos da tabela */}
+          <thead>
             <tr>
               <th>ID</th>
               <th>NOME</th>
               <th>DESCRIÇÃO</th>
               <th>IMAGEM</th>
               <th>PREÇO</th>
-              <th>EDITAR / EXCLUIR</th> {/* Corrija a formatação do texto */}
+              <th>EDITAR / EXCLUIR</th>
             </tr>
           </thead>
-          <tbody> {/* Use <tbody> para o corpo da tabela */}
+          <tbody>
             {produtos.map((item) => (
               <tr key={item.id}>
                 <td>{item.id}</td>
@@ -30,8 +36,9 @@ export default function Produtos() {
                 </td>
                 <td>{item.preco}</td>
                 <td>
-                  <button>Editar</button> {/* Adicione botões para editar/excluir */}
-                  <button>Excluir</button>
+                  {/* Use o componente Link para criar um link para a página de edição */}
+                  <Link to={`/editar/produtos/${item.id}`}>Editar</Link>
+                  <Link to={`/excluir/produtos/${item.id}`}>Excluir</Link>
                 </td>
               </tr>
             ))}
